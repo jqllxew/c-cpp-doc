@@ -10,12 +10,12 @@ bgImageStyle:
 heroText: 项目名称
 tagline: 你可以在这里放置或是整个项目的描述。
 actions:
-  - text: 使用指南 💡
+  - text: 开始 💡
     link: ./demo/
     type: primary
 
-  - text: 文档
-    link: ./guide/
+  - text: 知识地图
+    link: /markmap/knowledge.html
 
 highlights:
   - header: 易于安装

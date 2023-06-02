@@ -2,7 +2,12 @@ import { sidebar } from "vuepress-theme-hope";
 
 export default sidebar({
   "/": [
-    "",
+    {
+      text: "脑图",
+      icon: "laptop-code",
+      link: "markmap/knowledge.html",
+      target: "_blank",
+    },
     {
       text: "案例",
       icon: "laptop-code",
