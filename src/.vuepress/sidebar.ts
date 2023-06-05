@@ -3,22 +3,21 @@ import { sidebar } from "vuepress-theme-hope";
 export default sidebar({
   "/": [
     {
-      text: "脑图",
+      text: "知识地图",
       icon: "laptop-code",
       link: "markmap/knowledge.html",
       target: "_blank",
     },
     {
-      text: "案例",
+      text: "技能",
       icon: "laptop-code",
-      prefix: "demo/",
-      link: "demo/",
-      children: "structure",
+      link: "skill",
     },
     {
-      text: "文档",
-      icon: "book",
-      prefix: "guide/",
+      text: "基础",
+      icon: "laptop-code",
+      prefix: "basic/",
+      link: "basic/",
       children: "structure",
     },
     "slides",
