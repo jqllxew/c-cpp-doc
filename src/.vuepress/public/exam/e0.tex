@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+\usepackage{xeCJK}
+\usepackage{enumitem}
+
+% 定义'答问留白'简化命令
+\newcommand{\answerspace}[1][5]{\vspace{#1\baselineskip}}
+\newcommand{\questionitem}[2][5]{\item#2\answerspace[#1]}
+
+\begin{document}
+
+\begin{enumerate}[leftmargin=*]
+
+  \questionitem 请描述 \verb|#include <>| 与 \verb|#include ""| 的区别。
+
+  \questionitem[3] 定义 \verb|const char *s = "hello"|, 求 \verb|sizeof(s), strlen(s)| 的结果。
+
+  \questionitem 请描述 \verb|const int *a|, \verb|int const *a|, \verb|int * const a| 三种写法的区别。
+
+  \questionitem 父子类继承时，构造函数需要加 \verb|virtual| 关键字吗？析构函数呢？加与不加会有什么影响？
+
+  \questionitem "static" 修饰类成员函数有什么作用和使用限制？
+
+  \questionitem 请描述 \verb|new/delete| 与 \verb|malloc/free| 的区别。
+
+  \questionitem[3] git代码管理，克隆库、提交、推送、拉取分别是什么命令？
+
+  \questionitem[3] 请描述数据结构中堆和栈的区别。
+
+  \questionitem[3] 哈希表是什么？有什么优点？
+
+  \questionitem[3] 请描述进程和线程的区别。
+
+  \questionitem 请描述同步、异步、阻塞、非阻塞的区别。
+
+  \questionitem[3] 请描述TCP、UDP的区别。
+
+  \questionitem http、https的端口号。为什么自定义的网络服务不建议使用1024以内的端口号？
+
+  \questionitem 本地开启网络服务，使用IP地址 \verb|0.0.0.0| 作为监听，有什么作用？
+
+  \questionitem[8] windows是一个消息驱动的系统。请简要描述 \verb|GetMessage| 和 \verb|PeekMessage| 的作用和区别。
+
+  \questionitem[6] 请简要描述动态连接库和静态连接库的区别。
+
+  \questionitem[4] linux下对文件使用 \verb|chmod 640 /path/to/file| 命令，设置了什么权限？
+
+  \questionitem[4] {linux下，想从文本文件中过滤出包含 "xxx" 字符串的行，可以使用什么命令？如果想要\textbf{不包含} "xxx" 字符串的行，命令又该怎么写？}
+
+  \questionitem QT中将信号和槽关连起来的函数是什么？大致的参数形式是怎样的？
+
+  \questionitem QT中QWidget的作用是什么？
+
+
+\end{enumerate}
+
+\end{document}

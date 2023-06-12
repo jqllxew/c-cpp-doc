@@ -1,0 +1,4 @@
+*.aux
+*.log
+*.synctex.gz
+_region_.tex
