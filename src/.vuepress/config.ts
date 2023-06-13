@@ -5,8 +5,8 @@ export default defineUserConfig({
   base: "/",
 
   lang: "zh-CN",
-  title: "c/c++",
-  description: "c/c++文档",
+  title: "c/c++教程",
+  description: "c/c++教程",
 
   theme,
 
