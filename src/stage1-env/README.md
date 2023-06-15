@@ -8,6 +8,5 @@ category:
 
 ## 目录
 
-- [一点点vim知识](a-little-vim.md)
-
 - [使用git管理代码](git.md)
+- [vs开发c语言](hellovs.md)

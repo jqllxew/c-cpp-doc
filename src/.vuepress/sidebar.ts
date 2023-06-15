@@ -27,6 +27,13 @@ export default sidebar({
       children: "structure",
     },
     {
+      text: "第二阶段 - 学习c语言",
+      icon: "laptop-code",
+      prefix: "stage2-c/",
+      link: "stage2-c/",
+      children: "structure",
+    },
+    {
       text: "技能",
       icon: "laptop-code",
       link: "skill",
