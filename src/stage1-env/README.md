@@ -8,5 +8,6 @@ category:
 
 ## 目录
 
+- [使用vim](vim.md)
 - [使用git管理代码](git.md)
 - [vs开发c语言](hellovs.md)

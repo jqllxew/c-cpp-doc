@@ -1,7 +1,7 @@
 ---
 title: 使用git管理代码
 icon: gears
-order: 1
+order: 2
 category:
   - 第一阶段 - 开发环境
 tag:
@@ -93,13 +93,6 @@ git push -u origin "master"
 ## 修改同步其它分支
 - cherry-pick
 
-### vim基础操作
-熟悉最入门的操作。
-
-- 熟悉两种模式：命令模式、编辑模式
-- 光标移动
-- 编辑（输入、撤销）
-- 保存推出
 
 ### 冲突
 - `rebase` 后的冲突
