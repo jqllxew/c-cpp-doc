@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{zhnumber}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+\usepackage{xeCJK}
+\usepackage{enumitem}
+
+% 定义'答问留白'简化命令
+\newcommand{\answerspace}[1][5]{\vspace{#1\baselineskip}}
+\newcommand{\questionitem}[2][5]{\item#2\answerspace[#1]}
+
+\renewcommand\thesection{\zhnum{section}}
+
+\begin{document}
+
+\section{vim}
+
+\begin{enumerate}[leftmargin=*]
+
+  \questionitem[2] 写出vim中复制行、粘贴行命令。
+  \questionitem[2] 写出vim中剪切行命令。
+  \questionitem[2] 写出vim中块选择命令。
+  \questionitem[2] 写出vim中字符串替换命令。
+  \questionitem[2] 写出vim不保存的命令。
+  \questionitem[2] 写出vim执行系统命令\verb|echo ok|的命令。
+  \questionitem[2] 写出vim中搜索以\verb|aaa|为行头，以数字为行尾的正则表达式。
+  \questionitem[2] 写出vim左右和上下分屏的命令。
+  \questionitem[2] 写出vim多文件编辑时，切换到下一个文件的命令。
+  \questionitem[2] 写出vim多文件编辑时，删除某个打开文件的操作和命令。
+  \questionitem[2] 写出vim显示特殊字符的命令。
+  \questionitem[2] 写出vim显示行号的命令。
+
+\end{enumerate}
+
+\section{markdown}
+
+\begin{enumerate}[leftmargin=*]
+
+  \questionitem[2] 写出链接(link)和图片(image)语法。
+  \questionitem[3] 写出代码块语法。
+  \questionitem[5] 写出表格语法。
+
+\end{enumerate}
+
+\end{document}

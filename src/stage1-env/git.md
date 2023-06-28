@@ -10,11 +10,65 @@ tag:
 
 目标：通过场景化方式，学习实用的git的命令。
 
+## 了解ssh
+虚拟机网络使用桥接模式。在linux中看自己的IP:
+```bash
+ip a|grep 192
+```
+
+在linux terminal下安装：
+```bash
+# 更新库
+sudo apt update
+# 更新软件
+sudo apt upgrade
+# 安装ssh server
+sudo apt install openssh-server
+
+# 查看ssh状态，是否为running
+service ssh status
+```
+
+windows客户端连接：
+```bash
+ssh ubuntu_user_name@ip_addr
+
+# 要求输入密码
+```
+
+[免密配置](https://www.jianshu.com/p/e9db116fef8c)
+
+## git的管理思路
+- 分布式的版本管理
+- 本地、远端
+- 分支
+- 四种状态：Untracked、Unmodify、Modified、Staged
+- 好用的工具`tig`
+
 ## 准备
 
 ### 安装配置git
 - [git下载地址](https://git-scm.com/download/win)
 - [gitee配置key](https://help.gitee.com/repository/ssh-key/generate-and-add-ssh-public-key)
+
+### shell基础命令
+- cd，切换目录
+- ls -alh, 列出当前目录文件（夹）
+- mkdir，创建目录
+- touch，创建空文件
+- rm -r, 删除文件或目录，如果目录下有文件可以加-f, force强制删除
+
+:::warning 不要使用下面命令
+```bash
+rm -rf /
+```
+删除根目录，将导致系统异常不可用
+:::
+
+### 中文路径乱码
+```bash
+git config --global core.quotepath false
+```
 
 ### 仓库准备
 在`gitee`上新建空仓库后，会看到下面的提示。
@@ -45,55 +99,107 @@ git push -u origin "master"
 ```
 :::
 
-### 已有仓库克隆
+## 查看状态
+```bash
+# 查看分支
+git branch -avv
+# 查看远端
+git remote -v
+# 查看修改状态
+git status
+# 查看提交历史，N表示最近的N次
+git log [-N]
+# 也可以用tig查看,q键退出
+```
 
-## 一次完整的操作
-### 提交修改
-
-### 拉取远端
-
-## git的管理思路
-- 分布式的版本管理
-- 本地、远端
-- 分支
-- 四种状态：Untracted、Unmodify、Modified、Staged
-- 好用的工具`tig`
-
-## 分支
-
-### 什么时候用分支?
-- 一个feature
-- 一个bug fix
-- 多版本差异并行
-- 私人专用
-
-分支的代码修改尽量具有高内聚性，容易理解、方便合并、减少冲突。
-
-### 创建分支
-分支是由某一个`基础分支`，或者`基础历史提交`来创建的。
-- `git checkout -b master`
-
-### 推送分支
-- `push`
-
-### 分支合并
-- `rebase`
-- `merge`
-
-### 删除分支
-- 本地分支删除, `branch -D`
-- 远端分支删除, `push --delete`
-
-## 修改历史提交
-- `rebase`
-- `reset`, [hard vs soft vs mixed](https://stackoverflow.com/questions/3528245/whats-the-difference-between-git-reset-mixed-soft-and-hard)
-- `force`推送
-- 拉取远端的`force`推送
-
-## 修改同步其它分支
-- cherry-pick
+## 忽略文件
+使用`.gitignore`文件，排除不关心的文件
 
 
-### 冲突
-- `rebase` 后的冲突
-- `pull` 后的冲突
+## 添加/删除远端
+```bash
+git remote add xxxname url
+git remote remove xxxname
+```
+
+## 正常修改提交（无冲突）
+```bash
+# 添加修改到staged
+git add .
+# commit到本地库, -m 后面跟上提交描述
+git commit -m ""
+# 推送到远端
+git push
+```
+
+## 分支创建修改提交
+```bash
+# 基于当前所处分支，创建新的分支xxx
+git checkout -b xxx
+# 修改一些正常文件，然后add, commit,此处略
+...
+# 由于远端没有分支，push要加上推送到上游
+git push --set-upstream origin xxx
+# 以后有分支了，就不用加upstream了
+```
+
+## 提交前文件丢弃
+```bash
+# git status文件是红色的，未加入staged的文件，想回退到未修改状态。
+# `.`号可以替换为具体的文件名或目录
+git checkout .
+# git status文件是绿色的，已加入staged的文件，想回退到modified状态。
+git reset .
+# 或者根据提示信息，输入
+git restore --staged .
+```
+
+## 克隆、切换分支
+```bash
+# clone
+git clone
+
+# 分支之间的切换
+git checkout xxx
+```
+
+## 删除分支
+```bash
+# 删除本地xxx分支
+git branch -D xxx
+# 删除远端orign的xxx分支
+git push origin --delete xxx
+```
+
+## 修改合并到前一次提交
+```bash
+# 合并上一次提交
+git commit --amend -m "message..."
+
+# 推送, 强制
+git push -f
+```
+
+## 拉取远端的force提交
+```
+# 优先使用git fetch
+# 或者使用git pull,发生冲突，然后用git merge --abort，退出合并
+# 重新设置HEAD头
+git reset origin/b1 --hard
+```
+
+## reset回退历史
+
+
+## 修改提交记录
+### 修改提交日志
+### 合并、删除提交
+
+## 操作同一分支，push由于冲突拒绝推送
+### 方式一，提交merge
+### 方式二，rebase
+
+## 操作不同分支，merge冲突
+
+## 操作不同分支，提交前rebase解决冲突
+
