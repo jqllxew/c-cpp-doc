@@ -12,8 +12,7 @@ tag:
 目标：学习c语言基础类型，及相关概念。
 
 参考：
-- [cppreference.com 英文](https://en.cppreference.com)([中文](https://zh.cppreference.com))
-- [ISO C99](https://www.dii.uchile.cl/~daespino/files/Iso_C_1999_definition.pdf)
+- [integer_constant](https://en.cppreference.com/w/c/language/integer_constant)
 
 
 ## 整型分类图
@@ -47,8 +46,19 @@ root((c整型))
 
 ## 变量定义
 ```c
-char c = 'a';
-char c = 48;
+int d = 42;
+int o = 052;
+int x = 0x2aB; // 大小写无关
+int X = 0X2Ab;
+int b = 0b101010; // C23
+int B = 0B101010; // C23
+
+// u l 顺序无关
+// ll = LL , 但lL Ll不行
+unsigned long long l1 = 18446744073709550592ull; // C99
+unsigned long long l2 = 18'446'744'073'709'550'592llu; // C23
+unsigned long long l3 = 1844'6744'0737'0955'0592uLL; // C23
+unsigned long long l4 = 184467'440737'0'95505'92LLU; // C23
 ```
 
 ## 字符char

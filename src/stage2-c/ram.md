@@ -13,5 +13,5 @@ tag:
 - 方便讲解数据类型存放、结构体对齐、指针等知识。
 - 更深入的知识放在后续操作系统中。
 
-`[byte](https://en.wikipedia.org/wiki/Byte)
-[memory layout](https://www.geeksforgeeks.org/memory-layout-of-c-program/)
+- [byte](https://en.wikipedia.org/wiki/Byte)
+- [memory layout](https://www.geeksforgeeks.org/memory-layout-of-c-program/)
