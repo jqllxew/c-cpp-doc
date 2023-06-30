@@ -15,3 +15,6 @@ tag:
 
 - [byte](https://en.wikipedia.org/wiki/Byte)
 - [memory layout](https://www.geeksforgeeks.org/memory-layout-of-c-program/)
+- 大端小端。
+  小端：高位高地址，低位低地址。小端好处，方便类型扩展。
+  比如0x1234，用16位解析跟32位一样。如果是大端用32位会变成0x12340000。

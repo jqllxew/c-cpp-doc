@@ -61,11 +61,31 @@ unsigned long long l3 = 1844'6744'0737'0955'0592uLL; // C23
 unsigned long long l4 = 184467'440737'0'95505'92LLU; // C23
 ```
 
+## 数据模型
+- [类型](https://zh.cppreference.com/w/cpp/language/types)
+- [stdint.h, 固定类型大小](https://en.cppreference.com/w/c/types/integer)
+- 各个整型的具体大小不定，由编译平台定义实现。读[Date Model](https://en.cppreference.com/w/c/language/arithmetic_types)。
+- 即使大小不定，但c标准保证: 
+  `1 == sizeof(char) ≤ sizeof(short) ≤ sizeof(int) ≤ sizeof(long) ≤ sizeof(long long)`。
+- 在实际开发中，对整形表示范围敏感的数据，使用[`stdint.h`](https://en.cppreference.com/w/c/types/integer)中的类型（c++为`cstdint`）。
+
+## 类型限制
+- [limits](https://en.cppreference.com/w/c/types/limits)
+
+## 算术运算
+- [函数库](https://zh.cppreference.com/w/c/numeric/math)
+- [operator_arithmetic](https://en.cppreference.com/w/c/language/operator_arithmetic)
+
+## 位移运算
+- [有符号无符号](https://zh.cppreference.com/w/cpp/language/operator_arithmetic#Bitwise_shift_operators)
+通常我们要求左边的数是一个无符号的数
+
+## 隐式转换
+- [implicit conversion](https://zh.cppreference.com/w/c/language/conversion)
+
 ## 字符char
 - 与byte有什么关系?c中没有byte关键字，一般开发过程中使用`unsigned char`来表示byte。
 - [ASCII](https://en.cppreference.com/w/cpp/language/ascii)
-- sizeof, size_t
-- wchar_t?
 
 :::warning 注意一些差异
 ``` c
@@ -83,15 +103,30 @@ printf("%zu %zu\n", sizeof(char), sizeof('a'));
 - [Data Model](https://en.cppreference.com/w/cpp/language/types)。类型大小是compiler-defined, c99标准只定义了最小范围
 - 固定大小使用`stdint.h`(c++: `cstdint`)
 
-## 数据大小
-- 各个整型的具体大小不定，由编译平台定义实现。读[Date Model](https://en.cppreference.com/w/c/language/arithmetic_types)。
-- 即使大小不定，但c标准保证: 
-  `1 == sizeof(char) ≤ sizeof(short) ≤ sizeof(int) ≤ sizeof(long) ≤ sizeof(long long)`。
-- 在实际开发中，对整形表示范围敏感的数据，使用[`stdint.h`](https://en.cppreference.com/w/c/types/integer)中的类型（c++为`cstdint`）。
-
 ## 运算
 - 原码、反码、补码
 - 数学运算
 - 位运算
-- 注意上/下溢
+- 注意上/下溢，特别是条件判断中
 
+## 示例
+
+### 模拟RAID5盘数据恢复
+```c
+unsigned char c1 = 0x78;
+unsigned char c2 = 0x23;
+unsigned char c3 = 0xa2;
+unsigned char c4 = 0xf6;
+unsigned char check = c1 ^ c2 ^ c3 ^ c4;
+printf("%x\n", check);
+
+unsigned char isC3 = check ^ c1 ^ c2 ^ c4;
+printf("%x\n", isC3);
+```
+
+## 练习
+- 输入一串无符号的整形数组，其中只有一个数出现了1次，其它数都出现了2次，找出这个数
+- 输入一个数，找出离这个数最近的，且>=这个数，且为$2^n$的数。如`3 -> 4`, `8 -> 8`, `9 -> 16`
+- 使用`&|~`等位操作符，模拟`^`xor
+- 使用位操作，模拟`2bit`的加法
+- 选择学习利用`float`求$\frac 1 {\sqrt{x}}$, [参考](https://zhuanlan.zhihu.com/p/537091849)
