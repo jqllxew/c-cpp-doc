@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage{zhnumber}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+\usepackage{xeCJK}
+\usepackage{enumitem}
+
+% 定义'答问留白'简化命令
+\newcommand{\answerspace}[1][5]{\vspace{#1\baselineskip}}
+\newcommand{\questionitem}[2][5]{\item#2\answerspace[#1]}
+
+\renewcommand\thesection{\zhnum{section}}
+
+\begin{document}
+
+\section{c}
+
+\begin{enumerate}[leftmargin=*]
+
+  \questionitem[5] 写出防止头文件被重复包含的写法。
+  \questionitem[2] \verb|char| 与 \verb|signed char| 是同一类型吗？ \verb|int| 和 \verb|signed int| 呢？
+  \questionitem[2] \verb|int| 类型的长度由于平台不同，并不能保证一定为4字节，如果需要一个确定的4字节\verb|int|，应该使用那个类型？这个类型由哪个头文件提供？
+  \questionitem[2] 解释说明大端小端。一个整数0x1234使用小端在内存中怎么表示？
+  \questionitem[2] \verb|sizeof('a')|在C和C++中的大小。
+  \questionitem[2] \verb|int a[0];|, 求\verb|sizeof(a)|的大小。
+  \questionitem[2] \verb|int *a[10]|与\verb|int (*a)[10]|的区别。
+
+\end{enumerate}
+
+\end{document}
