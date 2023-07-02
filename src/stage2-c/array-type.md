@@ -12,8 +12,9 @@ tag:
 目标：学习c语言基础类型，及相关概念。
 
 参考：
-- [cppreference.com 英文](https://en.cppreference.com)([中文](https://zh.cppreference.com))
-- [ISO C99](https://www.dii.uchile.cl/~daespino/files/Iso_C_1999_definition.pdf)
+- [array initialization](https://en.cppreference.com/w/c/language/array_initialization)
+- [eval order](https://en.cppreference.com/w/c/language/eval_order)
+- [storage_duration](https://en.cppreference.com/w/c/language/storage_duration)
 
 
 ## array
@@ -122,9 +123,19 @@ diff 1: 141ll
 diff 2: 781ll
 ```
 
+:::warning NOTES
+```c
+
+```
+:::
+
 ## malloc/free
 
-## 
+## string
+
+- [string literal](https://en.cppreference.com/w/c/language/string_literal)
+- [string library](https://en.cppreference.com/w/c/string)
+- [Character Encoding](https://en.wikipedia.org/wiki/Character_encoding)
 
 ## collate
 
