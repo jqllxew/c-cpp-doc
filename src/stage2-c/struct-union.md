@@ -1,7 +1,7 @@
 ---
 title: 结构体、联合体类型
 icon: gears
-order: 2
+order: 5
 category:
   - 第一阶段 - 开发环境
 tag:

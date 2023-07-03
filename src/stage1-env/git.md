@@ -203,3 +203,34 @@ git reset origin/b1 --hard
 
 ## 操作不同分支，提交前rebase解决冲突
 
+## 远端有仓库，本地有代码，如何关联git
+
+### 第一种方式
+```bash
+# 把仓库拉到新目录
+git clone xxurl  new_dir
+# 把代码考到新目录
+cp -r solution_dir new_dir
+# 在新目录中做代码修改提交
+```
+
+### 第二种方式
+```bash
+# 初始化本地库
+git init
+# 添加远端
+git remote add origin git@gitee.com:neochin/xxxx.git
+# 第一次提交产生本地master分支
+vim README.md
+git add README.md
+git commit -m "readme"
+git branch -avv
+# 本地master分支与远端master分支关联
+git branch --set-upstream-to=origin/master master
+# rebase基于远端提交记录
+git rebase origin/master
+# 提交代码
+git add .
+git commit --amend -m "first code"
+git push -f
+```
